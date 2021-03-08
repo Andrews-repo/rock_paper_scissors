@@ -46,9 +46,9 @@
 
         
 
+    let i;
     
-    
-    for (let i = 0; i < 5; i++) {
+    for (i = 0; i < 5; i++) {
         let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
         const computerSelection = computerPlay();
         let roundResult = playRound(playerSelection, computerSelection);
