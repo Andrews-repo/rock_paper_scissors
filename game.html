@@ -1,0 +1,93 @@
+<body>
+<script>
+    //create scores
+   let computerScore = 0;
+   let playerScore = 0;
+   let tie = 0;
+
+   //define computers choices
+    function computerPlay() {
+        let choice = ['rock','paper','scissors'];
+        let pickChoice = choice[Math.floor(Math.random() * choice.length)];
+        return pickChoice;
+    };
+    
+    function playerPlay() {
+        let choice = ['rock','paper','scissors'];
+        let pickChoice = choice[Math.floor(Math.random() * choice.length)];
+        return pickChoice;
+    };
+
+    //game results
+    let compWin = "computer wins";
+    let playerWin = "player wins";
+    let draw = "tie";
+    let pWinGame = "player wins the game";
+    let cWinGame = "computer wins the game";
+
+    //rules of the game or round
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === computerSelection) {
+            return draw;
+        }
+        else if (playerSelection === 'rock' && computerSelection === 'paper') {
+            return compWin;
+        }
+        else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+            return compWin;
+        }    
+        else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+            return compWin;
+        }        
+        else {
+            return playerWin;
+        } 
+    }
+
+        
+
+    
+    
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+        const computerSelection = computerPlay();
+        let roundResult = playRound(playerSelection, computerSelection);
+        console.log(roundResult);
+        gameScore(roundResult);
+        console.log("Your score is " + playerScore);
+        console.log("The computer's score is " + computerScore);
+    }
+    
+    function gameScore(result) {
+    
+
+        if (result === playerWin) {
+            playerScore++;
+        } else if (result === draw) {
+            tie++;
+        } else {
+            computerScore++;
+        }
+
+
+        if (playerScore === 5) {
+            console.log(pWinGame);
+            return;
+        }
+        if (computerScore === 5) {
+            console.log(cWinGame);
+            return;
+        }
+     }
+
+
+
+    //console.log(playRound(playerSelection, computerSelection));
+
+//game();
+//console.log(computerScore);
+
+//console.log(playerPlay());
+
+</script>
+</body>
